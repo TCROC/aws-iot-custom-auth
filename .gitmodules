@@ -1,0 +1,6 @@
+[submodule "aws-iot-custom-auth-mqttnet"]
+	path = aws-iot-custom-auth-mqttnet
+	url = https://github.com/TCROC/aws-iot-custom-auth-mqttnet.git
+[submodule "aws-iot-custom-auth-lambda"]
+	path = aws-iot-custom-auth-lambda
+	url = https://github.com/TCROC/aws-iot-custom-auth-lambda.git
