@@ -36,6 +36,11 @@ do
     aws iot delete-certificate --certificate-id "$cert_id"
 done
 
+for policy_version in $(aws iot list-policy-versions --policy-name example-iot-policy --output text --query policyVersions[].versionId)
+do
+    aws iot delete-policy-version --policy-name "$policy_name" --policy-version-id "$policy_version"
+done
+
 aws iot delete-policy --policy-name "$policy_name"
 echo "Remove client certificates and policies: Complete"
 
