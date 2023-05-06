@@ -83,7 +83,7 @@ then
         --authorizer-name "$FUNCTION_NAME" \
         --authorizer-function-arn "$function_arn" \
         --signing-disabled \
-        --statis ACTIVE \
+        --status ACTIVE \
         --output text \
         --query authorizerArn)"
 fi
