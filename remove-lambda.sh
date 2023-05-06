@@ -3,9 +3,7 @@
 . config.sh
 
 echo "Remove iot authorizer $FUNCTION_NAME: In Progress"
-aws iot update-authorizer \
-    --authorizer-name "$FUNCTION_NAME" \
-    --status INACTIVE
+aws iot update-authorizer --authorizer-name "$FUNCTION_NAME" --status INACTIVE
 aws iot delete-authorizer --authorizer-name "$FUNCTION_NAME"
 echo "Remove iot authorizer $FUNCTION_NAME: Complete"
 echo "Remove lambda function $FUNCTION_NAME: In Progress"
