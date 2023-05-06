@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. config.sh
+
 iot_endpoint="$(aws iot describe-endpoint --endpoint-type iot:Data-ATS --output text)"
 
 # dotnet run --project aws-iot-custom-auth-mqttnet \ # csproj
@@ -12,9 +14,9 @@ iot_endpoint="$(aws iot describe-endpoint --endpoint-type iot:Data-ATS --output 
 #     "websocket" # the transport layer to use. Options: tcp | websocket
 dotnet run --project  aws-iot-custom-auth-mqttnet \
     "testid" \
-    "testpassword" \
+    "$LS_AWS_PASSWORD" \
     "$iot_endpoint" \
-    "b" \
-    "MyAuthorizer" \
+    "$LS_AWS_TOPIC_ROOT" \
+    "$FUNCTION_NAME" \
     "websocket4net" \
     "websocket"

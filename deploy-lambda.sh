@@ -31,10 +31,20 @@ then
     role_arn="$(aws iam create-role \
         --path "/service-role/" \
         --role-name "$FUNCTION_ROLE_NAME" \
-        --assume-role-policy-document "file://lambda-policy.json" \
+        --assume-role-policy-document "$FUNCTION_ROLE_JSON" \
         --output text \
         --query Role.Arn)"
 fi
+
+if ! aws iam get-policy --policy-arn "$FUNCTION_POLICY_ARN"
+then
+    aws iam create-policy \
+        --policy-name "$FUNCTION_POLICY_NAME" \
+        --path "$FUNCTION_POLICY_PATH" \
+        --policy-document "$FUNCTION_POLICY_JSON"
+fi
+
+aws iam attach-role-policy --role-name "$FUNCTION_ROLE_NAME" --policy-arn "$FUNCTION_POLICY_ARN"
 
 if function_arn="$(aws lambda get-function \
     --function-name "$FUNCTION_NAME" \
