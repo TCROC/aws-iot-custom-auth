@@ -4,8 +4,10 @@ aws_cli_region="$(aws configure get region)"
 aws_cli_account_id="$(aws sts get-caller-identity --output text --query Account)"
 
 export AWS_PAGER=""
+export AWS_CLI="aws"
 export REGION="$aws_cli_region"
 export ACCOUNT_ID="$aws_cli_account_id"
+export CLIENT_ID="testid"
 
 # arm64 or x86-64 or x86_64
 export ARCHITECTURE="arm64"
