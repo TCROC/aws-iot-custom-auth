@@ -1,3 +1,5 @@
+#!/bin/bash
+
 iot_endpoint="$(aws iot describe-endpoint --endpoint-type iot:Data-ATS --output text)"
 
 # dotnet run --project aws-iot-custom-auth-mqttnet \ # csproj

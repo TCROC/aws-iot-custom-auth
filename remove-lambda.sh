@@ -1,3 +1,5 @@
+#!/bin/bash
+
 . config.sh
 
 echo "Removing iot authorizer $FUNCTION_NAME..."

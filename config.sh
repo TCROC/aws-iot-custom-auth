@@ -1,6 +1,13 @@
+#!/bin/bash
+
+aws_cli_region="$(aws configure get region)"
+
 export AWS_PAGER=""
-export REGION="$(aws configure get region)"
-export ARCHITECTURE="arm64" # arm64 or x86-64 or x86_64
+export REGION="$aws_cli_region"
+
+# arm64 or x86-64 or x86_64
+export ARCHITECTURE="arm64"
+
 export FUNCTION_NAME="iot-lambda-authorizer"
 export FUNCTION_POLICY_NAME="${FUNCTION_NAME}-policy"
 export FUNCTION_ROLE_NAME="${FUNCTION_NAME}-role"
