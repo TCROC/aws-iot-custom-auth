@@ -47,7 +47,7 @@ Run in a bash shell:
 ./run-client-lambda.sh
 ``` 
 
-**Expected result:** The mqtt client sends keep alive packets for 24 hours as specified in the policy returned from teh lambda function.
+**Expected result:** The mqtt client sends keep alive packets for 24 hours as specified in the policy returned from the lambda function.
 
 **Actual result:** The mqtt client is disconnected anywhere between 30 seconds and 5 minutes.
 
