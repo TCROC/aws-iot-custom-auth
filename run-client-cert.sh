@@ -22,5 +22,5 @@ dotnet run --project  aws-iot-custom-auth-mqttnet \
     "$LS_AWS_TOPIC_ROOT" \
     "cert" \
     "target/certs/AmazonRootCA1.pem,target/certs/certificate.pem.crt,target/certs/private.pem.key" \
-    "websocket4net" \
-    "websocket"
+    "dotnet" \
+    "tcp"

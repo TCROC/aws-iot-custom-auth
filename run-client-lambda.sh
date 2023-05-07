@@ -22,5 +22,5 @@ dotnet run --project  aws-iot-custom-auth-mqttnet \
     "$LS_AWS_TOPIC_ROOT" \
     "lambda" \
     "$FUNCTION_NAME" \
-    "websocket4net" \
-    "websocket"
+    "dotnet" \
+    "tcp"
