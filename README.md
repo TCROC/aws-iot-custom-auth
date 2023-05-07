@@ -18,7 +18,7 @@ Windows 10 requires WSL Ubuntu 22.04 for cross compiling to ARM64 processors.
     - NOTE: Reproduced with version: ``7.0.203``
 1. Clone:
     ```
-    git clone https://github.com/TCROC/aws-iot-custom-auth-lambda.git --recurse-submodules
+    git clone https://github.com/TCROC/aws-iot-custom-auth.git --recurse-submodules
     ```
 
 **NOTE:** When running the scripts, you can ignore the aws cli errors that are logged.  The scripts do things such as check if the lambda function is deployed by calling ``aws lambda get-function ``. If the command errors, the script assumes it doesn't exist in the cloud and attempts to create one.
