@@ -9,57 +9,11 @@ policy_document_json_default="$(cat <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
-    {
-        "Effect": "Allow",
-        "Action": [
-        "iot:Connect"
-        ],
-        "Resource": [
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:client/\${iot:ClientId}"
-        ],
-        "Condition": {
-        "ArnEquals": {
-            "iot:LastWillTopic": [
-            "arn:aws:iot:$REGION:$ACCOUNT_ID:topic/$LS_AWS_TOPIC_ROOT/s/\${iot:ClientId}"
-            ]
+        {
+            "Effect": "Allow",
+            "Action": "iot:*",
+            "Resource": "*"
         }
-        }
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-        "iot:Receive"
-        ],
-        "Resource": [
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topic/$LS_AWS_TOPIC_ROOT/*"
-        ],
-        "Condition": {}
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-        "iot:Publish"
-        ],
-        "Resource": [
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topic/$LS_AWS_TOPIC_ROOT/d/*/\${iot:ClientId}",
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topic/$LS_AWS_TOPIC_ROOT/p/*/\${iot:ClientId}",
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topic/$LS_AWS_TOPIC_ROOT/s/\${iot:ClientId}"
-        ],
-        "Condition": {}
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-        "iot:Subscribe"
-        ],
-        "Resource": [
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topicfilter/$LS_AWS_TOPIC_ROOT/d/\${iot:ClientId}/*",
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topicfilter/$LS_AWS_TOPIC_ROOT/p/*/*",
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topicfilter/$LS_AWS_TOPIC_ROOT/s/*",
-        "arn:aws:iot:$REGION:$ACCOUNT_ID:topicfilter/$LS_AWS_TOPIC_ROOT/f/*"
-        ],
-        "Condition": {}
-    }
     ]
 }
 EOF
